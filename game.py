@@ -1,18 +1,21 @@
 import pygame
 from settings import Settings
+from player import Player
+import game_functions as gf
 
-pygame.init()
-gm_set = Settings()
-screen = pygame.display.set_mode((gm_set.screen_width, gm_set.screen_height))
-pygame.display.set_caption(gm_set.caption)
-running = True
+def run_game():
+    pygame.init()
+    gm_set = Settings()
 
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-            
-    screen.fill(gm_set.bg_color)
-    pygame.display.flip()
+    screen = pygame.display.set_mode([gm_set.screen_width, gm_set.screen_height])
+    pygame.display.set_caption(gm_set.caption)
+    
+    player = Player(screen)
 
-pygame.quit()
+    while True:
+        
+        gf.check_events(player)
+        player.update()
+        gf.update_screen(gm_set, screen, player)
+    
+run_game()
