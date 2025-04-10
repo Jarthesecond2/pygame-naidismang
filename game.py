@@ -32,7 +32,7 @@ def run_game():
         gf.check_events(gm_set, screen, player, bubbles, stats, play_button)
         if  stats.game_active:
             player.update()
-            gf.update_bubbles(player, bubbles, stats, sb)
+            gf.update_bubbles(player, bubbles, stats, sb, gm_set)
             bubbles.update()
         else:
             bubbles.empty()

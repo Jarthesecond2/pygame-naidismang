@@ -12,3 +12,5 @@ class GameStats():
     def reset_stats(self):
         """Installeeri skoor, mis saab muutuda mängu ajal"""
         self.score = 0
+        self.level = 1
+        self.bonus = 0
